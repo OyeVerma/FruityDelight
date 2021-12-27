@@ -20,7 +20,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 import os
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['SECRET_KEY']
+# SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = 'django-insecure-&_hvp$9!sz6mjy8f7v+#sxlgo^dj6ui^as&c(xrpmo)=gq6y(6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
@@ -81,9 +82,9 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-import dj_database_url
+# import dj_database_url
 
-DATABASES['default'] = dj_database_url.config(default=os.environ['DATABASE_URL'])
+# DATABASES['default'] = dj_database_url.config(default=os.environ['DATABASE_URL'])
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
