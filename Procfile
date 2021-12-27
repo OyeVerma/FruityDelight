@@ -1,1 +1,1 @@
-web : waitress-serve --port=$PORT FruityDelight.wsgi:application
+web : gunicorn FruityDelight.wsgi
