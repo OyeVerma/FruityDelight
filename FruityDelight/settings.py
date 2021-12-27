@@ -18,9 +18,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
-from os import environ
+import os
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-&_hvp$9!sz6mjy8f7v+#sxlgo^dj6ui^as&c(xrpmo)=gq6y(6'
+SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
@@ -83,7 +83,7 @@ DATABASES = {
 }
 import dj_database_url
 
-DATABASES['default'] = dj_database_url.config(default='postgres://whccbdkmslinui:7aebc41fcab4ee11c527f482fed1d25db454be2dbe836eb14d78ed245bb1ee3c@ec2-54-162-211-113.compute-1.amazonaws.com:5432/d8i5rabraaiaet')
+DATABASES['default'] = dj_database_url.config(default=os.environ['DATABASE_URL'])
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
