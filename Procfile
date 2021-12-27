@@ -1,1 +1,1 @@
-web : waitres-serve --port=$PORT FruityDelight.wsgi:application
+web : waitress-serve --port=$PORT FruityDelight.wsgi:application
