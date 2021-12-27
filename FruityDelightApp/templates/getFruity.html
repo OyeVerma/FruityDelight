@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <strong class="text-center alert">
+            आप क्या चाहते हैं ?
+        </strong>
+    </div>
+    <div class="row">
+        <div class="col-12 text-center">
+            <a href="{% url 'getFruity' "orange juice" %}" class="w-100 btn alert bg-warning rounded-pill">संतरे का रस</a>
+        </div>
+        <div class="col-12 text-center">
+            <a href="{% url 'getFruity' "coconut juice" %}" class="w-100 btn alert alert-success rounded-pill">नारियल का रस</a>
+        </div>
+        <div class="col-12 text-center">
+            <a href="{% url 'getFruity' "mixed fruits" %}" class="w-100 btn alert alert-primary rounded-pill">
+                मिश्रित फल <br>
+                (अनार, सेब, अमरूद, पपीता)
+            </a>
+        </div>
+    </div>
+
+</div>
+
+{% endblock body %}

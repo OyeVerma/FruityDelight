@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <form action="{% url 'order' %}" method="post" class=""> {% csrf_token %}
+                <div class="input-group-vertical">
+                    <input type="text" class="form-control disabled text-center" value="{{title.upper}}" name="item" readonly>
+                    <input type="text" placeholder="आपका शुभ नाम.." class="text-center form-control" name="name" autofocus>
+                </div>
+                <div class="btn-group w-100 mt-2">
+                    <a href="{% url 'getFruity' "item" %}" class="form-control btn btn-danger">Cancel</a>
+                    <input type="submit" class="btn btn-success form-control" value="Order">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

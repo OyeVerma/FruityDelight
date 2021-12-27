@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <p class="h2 alert alert-success text-center">
+                <small>आपका अनुरोध <br> ({{item.item}} के लिए) <br> सफल रहा</small>
+            </p>
+            {% if item.completed %}
+            <div class="alert alert-warning text-center">
+                <b>आपका {{item.item}} तैयार है</b>
+                <a href="{% url 'getFruity' "item" %}" class="btn btn-sm btn-primary">नया अनुरोध करें</a>
+            </div>           
+            {% else %}
+            <div type="text" class="alert alert-warning text-center" value="Reloading">
+                <a href="" class=" w-100 btn btn-sm btn-warning">अपने अनुरोध की स्थिति जानने के लिए <br> यहां क्लिक करें</a>
+                <hr>
+                <span id="spinner" class="spinner-border text-warning"></span>
+                <hr>
+                <small>हम आपके अनुरोध पर कार्य कर रहे हैं <br> आपका अनुरोध संख्या <b>{{item.id}}</b> है</small>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock body %}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <title>{{title}}</title>
+</head>
+<body>
+    <div class="container ">
+        
+        <div class="row">
+            <p class="text-center m-0 mt-2">
+                <strong class="h3">नमस्कार</strong> <br>
+            Fruity Delight में आपका स्वागत है
+            </p>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-12 text-center">
+                <a href="{% url 'getFruity' "item" %}" class="w-100 btn alert border border-dark rounded-pill"><b>अनुरोध करे</b></a>
+            </div>
+            <div class="col-12 text-center">
+                <a href="{% url 'aboutus' %}" class="w-100 btn alert bg-warning rounded-pill"><b>हमारे बारे में</b></a>
+            </div>
+            <div class="col-12 text-center">
+                <a href="{% url 'aboutteam' %}" class="w-100 btn alert bg-info rounded-pill"><b>हमारा समूह</b></a>
+            </div>
+            
+        </div>
+    </div>
+<hr>
+    {% include 'footer.html' %}
+</body>
+</html>

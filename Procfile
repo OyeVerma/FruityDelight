@@ -1,0 +1,1 @@
+web : waitres-serve --port=$PORT FruityDelight.wsgi:application

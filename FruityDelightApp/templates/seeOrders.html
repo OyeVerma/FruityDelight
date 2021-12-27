@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <table class="table">
+                <tr>
+                    <th>Item</th>
+                    <th>Ordered By</th>
+                    <th>Time (Ago)</th>
+                    <th>Given</th>
+                </tr>
+                {% for item in items %}
+                <form action="" method="post" id="form-{{item.id}}"> {% csrf_token %}
+                    <input type="text" value="{{item.id}}" name="id" hidden>
+                    <input type="text" value="{{item.name}}" name="name" hidden>
+                    <input type="text" value="{{item.item}}" name="item" hidden>
+                    <input type="text" value="{{item.completed}}" name="completed" hidden>
+                    <tr>
+                        <td>{{item.item}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.order_date_time|timesince|slice:"0:-4"}}</td>
+                        <td>
+                            {% if item.completed %}
+                            <button type="submit" class="btn btn-sm btn-success w-100"><i class="fas fa-check"></i></button>
+                            {% else %}
+                            <div class="btn-group-vertical w-100">
+                                <input type="checkbox" name="updatecheck" id="" class=" btn form-check-input border border-dark border-1">
+                                <button type="submit" class="btn btn-sm btn-warning"><i class="fas fa-check"></i></button>
+                            </div>
+                            {% endif %}
+                        </td>
+
+                    </tr>
+                </form>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            {% if successcomplaint %}
+            <div class="alert alert-success alert-lg text-center">
+                <div class="w-100 h1 text-center">
+                    <i class="fas fa-check h1"></i>
+                </div>
+                We Recieved Your Complaint Successfully, We Will Try To Solve It As Quickly As Possible. <br>
+                <p class="h2">Thank You</p>
+            </div>
+            {% else %}
+            <form action="" method="post"> {% csrf_token %}
+                <input type="text" placeholder="Your Name" name="name" class="form-control text-center" autofocus>
+                <textarea rows=5 placeholder="Your Complaint Here..." name="complaint" class="form-control text-center"></textarea>
+                
+                <div class="btn-group mt-2 w-100">
+                    <a href="{% url 'landpage' %}" class="btn btn-danger">Cancel</a>
+                    <button type="submit" class="btn btn-primary">Complaint</button>
+                </div>
+            </form>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock body %}
